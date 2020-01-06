@@ -14,6 +14,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptors';
 import localeIt from '@angular/common/locales/it';
 import { registerLocaleData } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SocketWidgetComponent } from './core/components/socket-widget/socket-widget.component';
+import { HighchartsChartModule } from "highcharts-angular";
 
 registerLocaleData(localeIt, 'it');
 
@@ -23,7 +25,8 @@ registerLocaleData(localeIt, 'it');
     HomeComponent,
     NavComponent,
     SensorsComponent,
-    WeatherComponent
+    WeatherComponent,
+    SocketWidgetComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ registerLocaleData(localeIt, 'it');
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HighchartsChartModule
   ],
   providers: [
     {

@@ -1,0 +1,9 @@
+<div class="borderComponent">
+    <h1>{{socketData?.descrizione}}</h1>
+    <mat-slide-toggle [checked]="socketData?.status">
+        On/Off
+    </mat-slide-toggle>
+    <highcharts-chart #gauge [Highcharts]="Highcharts" [options]="options" [(update)]="update"
+        style="width: 100%; height: 25vh; display: block;"></highcharts-chart>
+    <canvas #socketChart class="chart"></canvas>
+</div>

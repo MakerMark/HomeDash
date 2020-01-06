@@ -2,31 +2,30 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Socket
+        Prese Smart
       </mat-panel-title>
       <mat-panel-description>
-        Type your name and age
+        Sezione dedicata al controllo e monitoraggio dei consumi delle prese smart
       </mat-panel-description>
     </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
+    <app-socket-widget *ngFor="let sensor of sensorList?.socket" socketId="{{sensor.id}}"></app-socket-widget>
   </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Temperature
+        Temperature rilevate
       </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+
+    <div class="tempContainer">
+      <div *ngFor="let sensorT of sensorList?.temperature">
+        <h2>{{sensorT.descrizione}}</h2>
+        <h1>{{sensorT.current}} °C</h1>
+      </div>
+    </div>
+
+    <canvas #tempChart class="chart"></canvas>
+
   </mat-expansion-panel>
 </mat-accordion>
 <ngx-spinner></ngx-spinner>
