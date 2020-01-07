@@ -106,6 +106,10 @@ export class SocketWidgetComponent implements OnInit {
       chartData.push(this.socketData.rilevazioni[i].measuredW);
       chartLabel.push(moment(Number(this.socketData.rilevazioni[i].timestamp) * 1000).format('LTS'));
     }
+    const distinct = (value, index, self) => {
+      return self.indexOf(value) === index;
+    }
+    chartLabel = chartLabel.filter(distinct);
     this.socketData.lastUpdate = moment(Number(this.socketData.lastUpdate) * 1000).format('LLLL')
     const ctx = this.chart.nativeElement.getContext('2d');
     let myChart = new Chart(ctx, {
@@ -120,8 +124,11 @@ export class SocketWidgetComponent implements OnInit {
         }]
       },
       options: {
-        responsive: false,
-        display: true
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Consumi Rilevati'
+        }
       }
     });
     this.updateGauge(this.socketData.currentW);
