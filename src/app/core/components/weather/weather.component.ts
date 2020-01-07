@@ -57,7 +57,6 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeatherData(location) {
-    console.log("GET WE DATA", location);
     if (!location) {
       this.noLocation = true;
       this.spinner.hide();
@@ -68,7 +67,6 @@ export class WeatherComponent implements OnInit {
           this.currentWeather = res.data.shift();
           this.weatherData = res;
           this.spinner.hide();
-          console.log("RES ON COMP", res);
         },
         err => {
           Swal.fire({
