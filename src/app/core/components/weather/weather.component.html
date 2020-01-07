@@ -17,21 +17,33 @@
     Velocità Vento {{currentWeather.wind_spd}} m/s<br>
     Indice UV: {{currentWeather.uv}}<br>
 </div>
-<mat-tab-group *ngIf="!noLocation && weatherData?.data">
-    <mat-tab *ngFor="let weather of weatherData.data" label="{{weather.datetime}}">
-        <img src="./../../../../assets/img/weather/{{weather.weather.icon}}.png" class="todayW"><br>
-        {{weather.weather.description}}<br>
-        Temperatura Massima: {{weather.max_temp}} °C<br>
-        Temperatura Minima: {{weather.low_temp}} °C<br>
-        Punto di Rugiada: {{weather.dewpt}} °C<br>
-        Pressione: {{weather.pres}} mb<br>
-        Umidità {{weather.rh}} %<br>
-        <mat-icon svgIcon="moonrise"></mat-icon>{{weather.moonrise_ts}}<br>
-        <mat-icon svgIcon="sunset"></mat-icon>{{weather.sunset_ts}}<br>
-        <mat-icon svgIcon="sunrise"></mat-icon>{{weather.sunrise_ts}}<br>
-        Direzione Vento {{weather.wind_cdir}}<br>
-        Velocità Vento {{weather.wind_spd}} m/s<br>
-        Indice UV: {{weather.uv}}<br>
-    </mat-tab>
-</mat-tab-group>
+<div class="bottom-footer">
+    <mat-tab-group *ngIf="!noLocation && weatherData?.data">
+        <mat-tab *ngFor="let weather of weatherData.data" label="{{weather.datetime}}">
+            <div class="weatherContainer">
+                <div>
+                    <img src="./../../../../assets/img/weather/{{weather.weather.icon}}.png" class="todayW"><br>
+                    {{weather.weather.description}}
+                </div>
+                <div>
+                    Temperatura Massima: {{weather.max_temp}} °C<br>
+                    Temperatura Minima: {{weather.low_temp}} °C<br>
+                    Punto di Rugiada: {{weather.dewpt}} °C<br>
+                </div>
+                <div>
+                    Pressione: {{weather.pres}} mb<br>
+                    Umidità {{weather.rh}} %<br>
+                    Direzione Vento {{weather.wind_cdir}}<br>
+                    Velocità Vento {{weather.wind_spd}} m/s<br>
+                    Indice UV: {{weather.uv}}<br>
+                </div>
+                <div>
+                    <mat-icon svgIcon="moonrise"></mat-icon>{{weather.moonrise_ts}}<br>
+                    <mat-icon svgIcon="sunset"></mat-icon>{{weather.sunset_ts}}<br>
+                    <mat-icon svgIcon="sunrise"></mat-icon>{{weather.sunrise_ts}}<br>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
 <ngx-spinner></ngx-spinner>
