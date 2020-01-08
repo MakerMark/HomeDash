@@ -1,0 +1,31 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Prese Smart
+      </mat-panel-title>
+      <mat-panel-description>
+        Sezione dedicata al controllo e monitoraggio dei consumi delle prese smart
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-socket-widget *ngFor="let sensor of sensorList?.socket" socketId="{{sensor.id}}"></app-socket-widget>
+  </mat-expansion-panel>
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Temperature rilevate
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="tempContainer">
+      <div *ngFor="let sensorT of sensorList?.temperature">
+        <h2>{{sensorT.descrizione}}</h2>
+        <h1>{{sensorT.current}} °C</h1>
+      </div>
+    </div>
+
+    <canvas #tempChart class="chart"></canvas>
+
+  </mat-expansion-panel>
+</mat-accordion>
+<ngx-spinner></ngx-spinner>

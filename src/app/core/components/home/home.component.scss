@@ -1,0 +1,19 @@
+.bottomRightFab {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+
+.newsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cardWidth {
+  width: 20%;
+  margin-bottom: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+}

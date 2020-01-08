@@ -1,0 +1,22 @@
+.todayW{
+    height: 100px;
+}
+
+.gridW{
+    width: 70%;
+}
+
+.weatherContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .bottom-footer{
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: fixed;
+    bottom: 0;
+  }
