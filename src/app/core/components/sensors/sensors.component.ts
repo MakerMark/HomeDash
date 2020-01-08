@@ -4,7 +4,6 @@ import { SensorsService } from '../../services/location/sensors/sensors.service'
 import * as moment from 'moment';
 import 'moment/locale/it';
 import { Chart } from 'chart.js';
-import { distinct } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sensors',

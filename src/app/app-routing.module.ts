@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'sensors', component: SensorsComponent },
-  { path: '', redirectTo: '/weather', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

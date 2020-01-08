@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../../services/location/location.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2'
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Weather, weatherData } from '../../models/weather.model';
-import { map, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { WeatherService } from '../../services/location/weather/weather.service';
 
 @Component({
@@ -40,6 +37,8 @@ export class WeatherComponent implements OnInit {
   }
 
   async getLocationFromUser() {
+    let sessionCity = sessionStorage.getItem('cityName');
+    if(sessionCity) return { cityN: sessionCity };
     const { value: cityName } = await Swal.fire({
       title: 'Inserisci la città',
       input: 'text',
@@ -52,6 +51,7 @@ export class WeatherComponent implements OnInit {
     })
 
     if (cityName) {
+      sessionStorage.setItem('cityName', cityName);
       return { cityN: cityName };
     }
   }
@@ -70,7 +70,9 @@ export class WeatherComponent implements OnInit {
         },
         err => {
           Swal.fire({
-            title: 'Errore generico Server',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Errore generico Server',
           });
           this.spinner.hide();
           console.log("Error on get weather", err);

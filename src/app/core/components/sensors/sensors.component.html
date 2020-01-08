@@ -10,7 +10,7 @@
     </mat-expansion-panel-header>
     <app-socket-widget *ngFor="let sensor of sensorList?.socket" socketId="{{sensor.id}}"></app-socket-widget>
   </mat-expansion-panel>
-  <mat-expansion-panel>
+  <mat-expansion-panel expanded>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Temperature rilevate

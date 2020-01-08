@@ -16,6 +16,7 @@ import { registerLocaleData } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SocketWidgetComponent } from './core/components/socket-widget/socket-widget.component';
 import { HighchartsChartModule } from "highcharts-angular";
+import { SpeechRecognitionModule, RxSpeechRecognitionService } from '@kamiazya/ngx-speech-recognition';
 
 registerLocaleData(localeIt, 'it');
 
@@ -35,7 +36,12 @@ registerLocaleData(localeIt, 'it');
     HttpClientModule,
     SharedModule,
     NgxSpinnerModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    SpeechRecognitionModule.withConfig({
+      lang: 'it',
+      interimResults: true,
+      maxAlternatives: 10,
+    })
   ],
   providers: [
     {

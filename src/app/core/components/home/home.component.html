@@ -1,1 +1,40 @@
-<p>home works!</p>
+<h1>Welcome on Home Dash</h1>
+<mat-accordion>
+    <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+            <h2>
+                Today's Gif
+            </h2>
+        </mat-expansion-panel-header>
+        <img src="{{gifImg}}">
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Ultime Notizie
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngIf="newsList" class="newsContainer">
+            <mat-card *ngFor="let news of newsList" class="cardWidth">
+                <mat-card-header>
+                    <mat-card-title>{{news.title}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{news.imageToDisplay}}">
+                <mat-card-content>
+                    <p>
+                        {{news.abstract}}
+                    </p>
+                </mat-card-content>
+                    <mat-card-actions>
+                        <a mat-button href="{{news.url}}" target="_blank">GOTO</a>
+                    </mat-card-actions>
+            </mat-card>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+<button mat-fab [disabled]="listenStarted" (click)="listen()" color="warn" class="bottomRightFab">
+    <mat-icon>microphone</mat-icon>
+</button>
+<ngx-spinner></ngx-spinner>
