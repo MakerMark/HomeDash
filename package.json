@@ -24,7 +24,7 @@
     "@kamiazya/ngx-speech-recognition": "^0.4.3",
     "chart.js": "^2.9.3",
     "hammerjs": "^2.0.8",
-    "highcharts": "^8.0.0",
+    "highcharts": "^8.1.1",
     "highcharts-angular": "^2.4.0",
     "moment": "^2.24.0",
     "ngx-spinner": "^8.1.0",
